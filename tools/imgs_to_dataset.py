@@ -2,16 +2,18 @@ import cv2
 import json
 from os import listdir
 
-dir = './dataset/input/car_small/'
-dataset = './dataset/input/car.json'
-compression = (800, 600)
+dir = './dataset/input/jet/'
+dataset = './dataset/input/jet.json'
+compression = (100, 100)
 
 images = listdir(dir)
+dataset_array = []
 for key, image in enumerate(images):
     img = cv2.imread(dir + image)
-    # img = cv2.resize(img, compression)
-    images[key] = img.tolist()
+    if img is None: continue
+    img = cv2.resize(img, compression)
+    dataset_array.append(img.tolist())
 
 file = open(dataset, 'w')
-file.write(json.dumps(images))
+file.write(json.dumps(dataset_array))
 file.close()

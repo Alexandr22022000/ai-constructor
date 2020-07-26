@@ -1,4 +1,4 @@
-def train(ai, input, output_ideal):
+def train(ai, input, output_ideal, show_logs=True):
     for key, input_tensor in enumerate(input):
         output_tensor = ai.use(input_tensor)
 
@@ -9,3 +9,6 @@ def train(ai, input, output_ideal):
                     output_tensor.set(x, y, z, value)
 
         ai.train(output_tensor)
+
+        if show_logs:
+            print('Done: ' + str(key * 100 / len(input)) + '%')

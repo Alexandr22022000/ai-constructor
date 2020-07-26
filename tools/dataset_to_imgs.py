@@ -3,8 +3,8 @@ import json
 import numpy as np
 from pathlib import Path
 
-dataset = './dataset/output/car.json'
-dir = './dataset/output/car/'
+dataset = './dataset/input/person.json'
+dir = './dataset/output/person/'
 
 Path(dir).mkdir(parents=True, exist_ok=True)
 
